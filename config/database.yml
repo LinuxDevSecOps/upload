@@ -1,0 +1,42 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  host: localhost
+  username: root
+  password:
+
+
+development:
+  <<: *default
+  database: coinchel #escobarx_development00_28_april
+  socket: /opt/lampp/var/mysql/mysql.sock
+
+test:
+  <<: *default
+  database: coinchel_test
+  socket: /opt/lampp/var/mysql/mysql.sock
+
+stage:
+  <<: *default
+  pool: <%= ENV['POOL']%>
+  database: <%= ENV['RDS_DB_NAME']%>
+  host: <%= ENV['RDS_HOSTNAME']%>
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  reconnect: true
+
+stage_2:
+  <<: *default
+  pool: <%= ENV['POOL']%>
+  database: <%= ENV['RDS_DB_NAME']%>
+  host: <%= ENV['RDS_HOSTNAME']%>
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  reconnect: true
+
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+  pool: 10
+  database: ecb01

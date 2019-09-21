@@ -1,0 +1,214 @@
+<style>
+    .customecss {
+        /*margin-top: -36px;*/
+        padding: 10px;
+    }
+    .customecss > div {
+        width: 100% !important;
+    }
+    .customecss > div > iframe {
+        width: 100% !important;
+    }
+</style>
+
+<style>
+    .customecss {
+        /*margin-top: -36px;*/
+        padding: 10px;
+    }
+    .customecss > div {
+        width: 100% !important;
+    }
+    .customecss > div > iframe {
+        width: 100% !important;
+    }
+
+          
+ .pop4{
+  padding-top:0px;
+  width:400px; height:160px;
+  background: linear-gradient( 30deg, #fa4f27, #9e6cbe );        
+  color:#fff; 
+  position:absolute; top:120px; left:130px; text-align:center; 
+  z-index:300;
+  opacity: 12;
+  padding: 0px;
+  }  
+
+      
+@media only screen and (max-width: 600px) {
+.pop4{
+  padding-top:0px;
+  width:300px; height:160px; 
+  background: linear-gradient( 30deg, #fa4f27, #9e6cbe );     
+  color:#fff; 
+  position:absolute; top:100px; left:30px; text-align:center; 
+  padding: 11px;
+  z-index:300;
+  }   
+}
+
+</style>
+<div class="pop4"  style="display:block;">  
+<div >
+  <a id="close" href="javascript:p4close();" class="text-white"> 
+  <p class="text-white" style="float:right;padding:5px 20px;font-size:1.2em;color:#fff;">X </p></a>
+   <p class="text-white" style="padding-top:10px;text-align:center;font-weight:500;font-size:1.2em; color:#fff;">  ☆ CAC+ 코인상장 안내 ☆</p>
+
+   <p class="text-white" style="padding: 20px 20px;text-align:center;font-weight:500;font-size:1em; color:#fff;">
+      
+      새로운 코인 상장 및 시스템 점검중입니다.<br>
+      거래서비스는 추후 공지 시까지 사용이 불가합니다.<br>
+      양해해 주시기 바랍니다. 감사합니다.
+  </p>
+  <br>
+  <!--<img src="<%=asset_path 'binance001.jpg'%>" ></img>-->
+</div>
+</div>
+
+
+
+
+<%=  render 'shared/flash' %>
+<div class="home_bnr">
+  <%= image_tag('banner.jpg')%>
+  <!--<img class="img-responsive" src="./assets/images/banner.jpg" alt="banner" style="max-width: 100%;">-->
+</div>
+
+
+<div class="container-fluid koinshark_currency">
+  <div class="container">
+    <div class="row">
+      <div class="owl-carousel top_carousel">
+        <div> <span class="bitcoin_price"> <span class="btc"><%= t('.tab_1')%></span></span> </div>
+        <div> <span class="bitcoin_price"><span class="btc"> <%= t('.tab_2')%></span> </span> </div>
+        <div> <span class="bitcoin_price"><span class="btc"><%= t('.tab_3')%></span></span> </div>
+        <div> <span class="bitcoin_price"><span class="btc"><%= t('.tab_4')%></span></span> </div>
+        <div> <span class="bitcoin_price"><span class="btc"><%= t('.tab_5')%></span></span> </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="currency_block" id="ticker">
+  <%= render 'ticker' %>
+</section>
+<!--/.currency_block-->
+
+
+<section class="currency_market" id="sticky">
+  <div class="container">
+    <%= render partial: 'market_list' %>
+  </div>
+</section> <!--/.currency_market-->
+<section class="responsive_sec">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 responsive_sec_block text-right">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- owl.carousel js -->
+<script>
+    $(document).ready(function(){
+        var owl = $('.currency_carousel');
+        owl.owlCarousel({
+            items:7,
+            loop:false,
+            rtl: false,
+            margin:0,
+            autoplay:true,
+            autoplayTimeout:1000,
+            autoplayHoverPause:true,
+            responsive:{
+                0:{
+                    items:1,
+                },
+                600:{
+                    items:3,
+                },
+                601:{
+                    items:5,
+                },
+                1200:{
+                    items:7
+                }
+            }
+        });
+    });
+
+    $(document).ready(function(){
+        var owl = $('.top_carousel');
+        owl.owlCarousel({
+            items:3,
+            loop:false,
+            rtl: false,
+            margin:0,
+            autoplay:true,
+            autoplayTimeout:1000,
+            autoplayHoverPause:true,
+            responsive:{
+                0:{
+                    items:1,
+                },
+                600:{
+                    items:1,
+                },
+                1000:{
+                    items:3
+                }
+            }
+        });
+    });
+
+    /* price marquee */
+    $('.bitcoin_price').on('click', function(){
+        // $('.bitcoin_price').removeClass('current');
+        $(this).toggleClass('current');
+    });
+
+    /* onscroll add and remove class */
+    $(window).scroll(function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 150) {
+            $("body").addClass("fixed");
+        } else {
+            $("body").removeClass("fixed");
+        }
+
+        sticky_scollbar = $("#sticky").offset().top;
+
+        if (scroll >= sticky_scollbar){
+            $("#sticky").addClass('sticky');
+            $(".search_market_sec").addClass('container');
+
+
+        }else {
+            $("#sticky").removeClass('sticky');
+            $(".search_market_sec").removeClass('container');
+//
+        }
+    });
+
+    $('.head_withdraw').click(function(){
+        $('.dropdown .text').text('INR');
+
+    });
+
+    $('.head_deposit').click(function(){
+        $('.dropdown .text').text('INR');
+
+    });
+    $('.carousel').carousel({
+       interval: 3000
+    });
+
+      function p4close() {
+       $('.pop4').hide();
+    }  
+
+    
+</script>
+

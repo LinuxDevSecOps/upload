@@ -1,0 +1,398 @@
+- id: 1
+  key: satoshi
+  currency_name: BitCoin
+  blockchain_key: btc
+  code: btc
+  symbol: "฿"
+  coin: true
+  precision: 8
+  priority: 1
+  base_factor: 100_000_000
+  # API client configuration.
+  api_client: BTC
+  # Bitcoind specific configuration.
+  json_rpc_endpoint: http://btcmaster:K6U2QYXW7KwmWMg7PJ@172.31.14.88:18332
+  # The rest of configuration.
+  # Deposits with less amount are skipped during blockchain synchronization.
+  # We advise to set value 10 times bigger than the network fee to prevent losses.
+  min_deposit_amount: 0.0000356
+  quick_withdraw_max: 2
+  quick_withdraw_min: 0.002
+  blockchain: https://blockchain.info/tx/#{txid}
+  address_url: https://blockchain.info/address/#{address}
+
+- id: 2
+  key: bitcoin_cash
+  currency_name: BitCoin Cash
+  blockchain_key: bch
+  code: bch
+  symbol: "฿"
+  coin: true
+  precision: 8
+  priority: 2
+  base_factor: 100_000_000
+  # API client configuration.
+  api_client: BCH
+  # Bitcoind specific configuration.
+  json_rpc_endpoint: http://bchadmaster:Fy2a5na4DycpK4w5rC6@172.31.10.255:18332
+  # The rest of configuration.
+  # Deposits with less amount are skipped during blockchain synchronization.
+  # We advise to set value 10 times bigger than the network fee to prevent losses.
+  min_deposit_amount: 0.0000748
+  quick_withdraw_max: 1
+  quick_withdraw_min: 0.002
+  rpc: http://username:password@127.0.0.1:18332
+  blockchain: https://www.blocktrail.com/BCC/tx/#{txid}
+  address_url: https://www.blocktrail.com/BCC/address/#{address}
+
+- id:          3
+  key:         ethereum
+  currency_name: Ethereum
+  blockchain_key: eth
+  code:        eth
+  symbol:      'Ξ'
+  coin:        true
+  precision:   8
+  priority:    3
+  base_factor: 1_000_000_000_000_000_000
+  # API client configuration.
+  api_client: ETH
+  # Ethereum node specific configuration.
+  json_rpc_endpoint: http://172.31.15.32:8545
+  # The rest of configuration.
+  # Deposits with less amount are skipped during blockchain synchronization.
+  # We advise to set value 10 times bigger than the network fee to prevent losses.
+  min_deposit_amount: 0.00021
+  quick_withdraw_max: 100
+  quick_withdraw_min: 0.02
+  blockchain:         https://ropsten.etherscan.io/tx/#{txid}
+  address_url:        https://ropsten.etherscan.io/address/#{address}
+
+- id:          4
+  key:         ripple
+  currency_name: RIPPLE
+  blockchain_key: xrp
+  code:        xrp
+  symbol:      'ꭆ'
+  coin:        true
+  precision:   8
+  priority:    4
+  base_factor: 1_000_000
+  visible:     true
+  # API client configuration.
+  api_client:  XRP
+  # Ethereum node specific configuration.
+  #json_rpc_endpoint: http://s.altnet.rippletest.net:51234
+  json_rpc_endpoint: http://xrpmaster:D5CCbxd8uNetNWdu@172.31.44.60:5005
+  # The rest of configuration.
+  # Deposits with less amount are skipped during blockchain synchronization.
+  # We advise to set value 10 times bigger than the network fee to prevent losses.
+  min_deposit_amount: 0.00012
+  quick_withdraw_max: 50
+  quick_withdraw_min: 22
+  blockchain:        https://bithomp.com/explorer/#{txid}
+  address_url:       https://bithomp.com/explorer/#{address}
+
+- id:          5
+  key:         chelscoin
+  currency_name: CSC
+  blockchain_key: eth
+  code:        csc
+  symbol:      'Ξ'
+  coin:        true
+  priority:    4
+  visible:     true
+
+  #  precision:   6
+  #  base_factor: 1_000_000
+  #  contract_address: "0x493c5c3a476081c97a23f3a90269cd03f8c2a405"
+
+  precision:   5
+  base_factor: 1_00_000
+  contract_address: "0xB2Ecc8D08Ad80c737Cce050730E4ee7355a9B27f"
+
+  #API client configuration.
+  api_client:  ERC20
+  #Ethereum node specific configuration.
+  json_rpc_endpoint: http://172.31.15.32:8545
+  #The rest of configuration.
+  # Deposits with less amount are skipped during blockchain synchronization.
+  # We advise to set value 10 times bigger than the network fee to prevent losses.
+  # NOTE: Network fee is paid in ETH but min_deposit_amount is in CSC.
+  min_deposit_amount: 200
+  quick_withdraw_max: 1000
+  quick_withdraw_min: 200
+  blockchain:         https://ropsten.etherscan.io/tx/#{txid}
+  address_url:        https://ropsten.etherscan.io/address/#{address}
+
+- id:          6
+  key:         tronix
+  currency_name: TRON
+  blockchain_key: trx
+  code:        trx
+  symbol:      'Ξ'
+  coin:        true
+  precision:   6
+  priority:    4
+  base_factor: 1_000_000
+  visible:     true
+
+  #Tronix node specific configuration.
+  json_rpc_endpoint:  https://api.shasta.trongrid.io
+  #json_rpc_endpoint: http://18.136.195.126:8090
+
+  #The rest of configuration.
+  quick_withdraw_max: 10000
+  quick_withdraw_min: 1
+  #  https://shasta.tronscan.org/#/transaction/
+  blockchain:  https://shasta.tronscan.org/#/transaction/{txid}
+  address_url: https://shasta.tronscan.org/#/address/{address}
+
+- id:          7
+  key:         impereum
+  currency_name: IMPEREUM
+  blockchain_key: eth
+  code:        ipm
+  symbol:      'Ξ'
+  coin:        true
+  priority:    7
+  visible:     true
+  #  precision:   6
+  #  base_factor: 1_000_000
+  #  contract_address: "0xe251524df2bc0b83716749dc71975f173a5ef35c"
+  precision:   5
+  base_factor: 1_00_000
+  contract_address: "0xB2Ecc8D08Ad80c737Cce050730E4ee7355a9B27f"
+
+  #API client configuration.
+  api_client:  ERC20
+  #Ethereum node specific configuration.
+  json_rpc_endpoint: http://172.31.15.32:8545
+  #The rest of configuration.
+  # Deposits with less amount are skipped during blockchain synchronization.
+  # We advise to set value 10 times bigger than the network fee to prevent losses.
+  # NOTE: Network fee is paid in ETH but min_deposit_amount is in CSC.
+  min_deposit_amount: 20
+  quick_withdraw_max: 1000
+  quick_withdraw_min: 200
+  blockchain:         https://ropsten.etherscan.io/tx/#{txid}
+  address_url:        https://ropsten.etherscan.io/address/#{address}
+
+- id:          8
+  key:         ems_token
+  currency_name: EMS
+  blockchain_key: eth
+  code:        ems
+  symbol:      'Ξ'
+  coin:        true
+  priority:    8
+  visible:     true
+
+  #  precision:   6
+  #  base_factor: 1_000_000
+  #  contract_address: "0x04069fd0fe1c0ed5106ad9f65f3e44d8cf3311b1"
+  precision:   5
+  base_factor: 1_00_000
+  contract_address: "0xB2Ecc8D08Ad80c737Cce050730E4ee7355a9B27f"
+
+  #API client configuration.
+  api_client:  ERC20
+  #Ethereum node specific configuration.
+  json_rpc_endpoint: http://172.31.15.32:8545
+  #The rest of configuration.
+  # Deposits with less amount are skipped during blockchain synchronization.
+  # We advise to set value 10 times bigger than the network fee to prevent losses.
+  # NOTE: Network fee is paid in ETH but min_deposit_amount is in EMS.
+  min_deposit_amount: 20
+  quick_withdraw_max: 1000
+  quick_withdraw_min: 200
+  blockchain:         https://ropsten.etherscan.io/tx/#{txid}
+  address_url:        https://ropsten.etherscan.io/address/#{address}
+
+- id:          9
+  key:         ecpplus_token
+  currency_name: ECPPLUS
+  blockchain_key: eth
+  code:        "ecp+"
+  symbol:      'Ξ'
+  coin:        true
+  priority:    9
+  visible:     true
+
+  #precision:   8
+  #base_factor: 100_000_000
+  #contract_address: "0x2C72EE35637cb6df00f8C07595b564a05f667006"
+  precision:   5
+  base_factor: 1_00_000
+  contract_address: "0xB2Ecc8D08Ad80c737Cce050730E4ee7355a9B27f"
+
+  #API client configuration.
+  api_client:  ERC20
+  #Ethereum node specific configuration.
+  json_rpc_endpoint: http://172.31.15.32:8545
+  #The rest of configuration.
+  # Deposits with less amount are skipped during blockchain synchronization.
+  # We advise to set value 10 times bigger than the network fee to prevent losses.
+  # NOTE: Network fee is paid in ETH but min_deposit_amount is in ECP+.
+  min_deposit_amount: 20
+  quick_withdraw_max: 1000
+  quick_withdraw_min: 200
+  blockchain:         https://ropsten.etherscan.io/tx/#{txid}
+  address_url:        https://ropsten.etherscan.io/address/#{address}
+
+
+- id:          10
+  key:         usdcoin
+  currency_name: USDCOIN
+  blockchain_key: eth
+  code:        usdc
+  symbol:      'Ξ'
+  coin:        true
+  priority:    10
+  visible:     true
+
+  #  precision:    6
+  #  base_factor: 1_000_000
+  #  contract_address: "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+
+  precision:    5
+  base_factor: 1_00_000
+  contract_address: "0xB2Ecc8D08Ad80c737Cce050730E4ee7355a9B27f"
+
+  #API client configuration.
+  api_client:  ERC20
+  #Ethereum node specific configuration.
+  json_rpc_endpoint: http://172.31.15.32:8545
+  #BitGo specific configuration.
+  bitgo_test_net:              on
+  bitgo_wallet_id:             ~
+  bitgo_wallet_address:        ~
+  bitgo_wallet_passphrase:     ~
+  bitgo_rest_api_root:         https://test.bitgo.com/api/v2
+  bitgo_rest_api_access_token: ~
+
+  #The rest of configuration.
+  min_deposit_amount: 20
+  quick_withdraw_max: 400
+  quick_withdraw_min: 200
+  blockchain:         https://ropsten.etherscan.io/tx/#{txid}
+  address_url:        https://ropsten.etherscan.io/address/#{address}
+
+- id:          11
+  key:         fto_token
+  currency_name: Fractal Token
+  blockchain_key: eth
+  code:        fto
+  symbol:      'Ξ'
+  coin:        true
+  priority:    11
+  visible:     true
+
+  #  precision:   18
+  #  base_factor: 100_000_000
+  #  contract_address: "0x493c5c3a476081c97a23f3a90269cd03f8c2a405"
+  precision:   5
+  base_factor: 1_00_000
+  contract_address: "0xB2Ecc8D08Ad80c737Cce050730E4ee7355a9B27f"
+
+  #API client configuration.
+  api_client:  ERC20
+  #Ethereum node specific configuration.
+  json_rpc_endpoint: http://172.31.15.32:8545
+  #The rest of configuration.
+  # Deposits with less amount are skipped during blockchain synchronization.
+  # We advise to set value 10 times bigger than the network fee to prevent losses.
+  # NOTE: Network fee is paid in ETH but min_deposit_amount is in CSC.
+  min_deposit_amount: 20
+  quick_withdraw_max: 1000
+  quick_withdraw_min: 200
+  blockchain:         https://ropsten.etherscan.io/tx/#{txid}
+  address_url:        https://ropsten.etherscan.io/address/#{address}
+
+- id:          12
+  key:         cacplus_token
+  currency_name: CACPLUS
+  blockchain_key: eth
+  code:        "cac+"
+  symbol:      'Ξ'
+  coin:        true
+  priority:    12
+  visible:     true
+
+  #  precision:    6
+  #  base_factor: 1_000_000
+  #  contract_address: "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+
+  precision:    5
+  base_factor: 1_00_000
+  contract_address: "0x98c9DCc1835b0AB4ca3FB00e801d22988212d3D3"
+
+  #API client configuration.
+  api_client:  ERC20
+  #Ethereum node specific configuration.
+  json_rpc_endpoint: http://172.31.15.32:8545
+
+  #The rest of configuration.
+  min_deposit_amount: 20
+  quick_withdraw_max: 1000
+  quick_withdraw_min: 200
+  blockchain:         https://ropsten.etherscan.io/tx/#{txid}
+  address_url:        https://ropsten.etherscan.io/address/#{address}
+
+#- id:          4
+#  key:         eos_token
+#  blockchain_key: eth
+#  currency_name: EOS
+#  code:        eos
+#  symbol:      'Ξ'
+#  coin:        true
+#  precision:   18
+#  priority:    8
+#  base_factor: 100_000_000 ecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9
+#  visible:     true
+#  contract_address:  "0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0"
+#  # API client configuration.
+#  api_client:  ERC20
+#  # Ethereum node specific configuration.
+#  json_rpc_endpoint: http://172.31.5.17:8545
+#  # BitGo specific configuration.
+#  bitgo_test_net:              on
+#  bitgo_wallet_id:             ~
+#  bitgo_wallet_address:        ~
+#  bitgo_wallet_passphrase:     ~
+#  bitgo_rest_api_root:         https://test.bitgo.com/api/v2
+#  bitgo_rest_api_access_token: ~
+#  #
+#  # The rest of configuration.
+#  quick_withdraw_max: 1000
+#  quick_withdraw_min: 0.1
+#  blockchain:         https://etherscan.io/tx/#{txid}
+#  address_url:        https://etherscan.io/address/#{address}
+
+#- id:          7
+#  key:         usd
+#  currency_name: Dollar
+#  blockchain_key: ~
+#  code:        usd
+#  symbol:      '$'
+#  coin:        false
+#  precision:   2
+#  priority:    5
+#  base_factor: 2
+#  visible:     true
+#  # API client configuration.
+#  api_client:
+#  json_rpc_endpoint:
+#  # BitGo specific configuration.
+#  bitgo_test_net:
+#  bitgo_wallet_id:
+#  bitgo_wallet_address:
+#  bitgo_wallet_passphrase:
+#  bitgo_rest_api_root:
+#  bitgo_rest_api_access_token:
+#  #
+#  # The rest of configuration.
+#  quick_withdraw_max: 100
+#  quick_withdraw_min: 10
+#  blockchain:
+#  address_url:
